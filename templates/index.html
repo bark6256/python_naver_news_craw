@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>신문리스트</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="container m_box m_tm_20">
+        <!-- 신문 리스트 시작 -->
+        {% for news in newsCraw %}
+            <ul>
+                <li>{{news.company}}</li>
+                <li>{{news.title}}</li>
+                <li>{{news.createdAt}}</li>
+            </ul>
+            <br>
+        {% endfor %}
+        <!-- 신문 리스트 끝 -->
+    </div>
+
+<script>
+    function myPolling(){
+        location.reload();
+    }
+    setInterval(myPolling, 1000*60);
+</script>
+
+</body>
+
+</html>

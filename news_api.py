@@ -6,10 +6,14 @@ import requests
 # dict -> json.dumps() = json
 
 
-url = "http://localhost:8080/news"
+def getNewsApi():
+    url = "http://localhost:8080/news"
 
-response = requests.get(url)
-newsDto = response.json()
+    response = requests.get(url)
+    newsDto = response.json()
 
-print(type(newsDto))
-print(newsDto)
+
+    if newsDto["code"] == 1:
+        return newsDto["data"]
+    else:
+        print(newsDto["msg"])
